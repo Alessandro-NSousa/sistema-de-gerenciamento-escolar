@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20220420135324",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "docente",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gerero",
+      "fieldType": "Sexo",
+      "fieldValues": "F,M"
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Docente",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "logradouro",
+      "otherEntityName": "endereco",
+      "otherEntityRelationshipName": "docente",
+      "ownerSide": true,
+      "relationshipName": "endereco",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

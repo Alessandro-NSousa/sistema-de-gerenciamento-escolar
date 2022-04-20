@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-discente-heading" data-cy="DiscenteCreateUpdateHeading" jhiTranslate="sistemaEscolarApp.discente.home.createOrEditLabel">
+        Create or edit a Discente
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.nome" for="field_nome">Nome</label>
+          <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
+          <div *ngIf="editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nome')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.cpf" for="field_cpf">Cpf</label>
+          <input type="text" class="form-control" name="cpf" id="field_cpf" data-cy="cpf" formControlName="cpf" />
+          <div *ngIf="editForm.get('cpf')!.invalid && (editForm.get('cpf')!.dirty || editForm.get('cpf')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cpf')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.matricula" for="field_matricula">Matricula</label>
+          <input type="number" class="form-control" name="matricula" id="field_matricula" data-cy="matricula" formControlName="matricula" />
+          <div *ngIf="editForm.get('matricula')!.invalid && (editForm.get('matricula')!.dirty || editForm.get('matricula')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('matricula')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('matricula')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.curso" for="field_curso">Curso</label>
+          <input type="text" class="form-control" name="curso" id="field_curso" data-cy="curso" formControlName="curso" />
+          <div *ngIf="editForm.get('curso')!.invalid && (editForm.get('curso')!.dirty || editForm.get('curso')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('curso')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.genero" for="field_genero">Genero</label>
+          <select class="form-control" name="genero" formControlName="genero" id="field_genero" data-cy="genero">
+            <option [ngValue]="null">{{ 'sistemaEscolarApp.Sexo.null' | translate }}</option>
+            <option *ngFor="let sexo of sexoValues" [value]="sexo">{{ 'sistemaEscolarApp.Sexo.' + sexo | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.endereco" for="field_endereco">Endereco</label>
+          <select class="form-control" id="field_endereco" data-cy="endereco" name="endereco" formControlName="endereco">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="enderecoOption.id === editForm.get('endereco')!.value?.id ? editForm.get('endereco')!.value : enderecoOption"
+              *ngFor="let enderecoOption of enderecosCollection; trackBy: trackEnderecoById"
+            >
+              {{ enderecoOption.logradouro }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

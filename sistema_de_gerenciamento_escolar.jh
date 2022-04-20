@@ -1,0 +1,69 @@
+
+entity Discente {
+	nome String required
+    cpf String required
+    matricula Integer required
+    curso String required
+    genero Sexo
+}
+
+enum Sexo {
+	F, M
+}
+	
+
+entity Docente {
+	nome String required
+    cpf String required
+    gerero Sexo
+    dataNascimento LocalDate
+    
+}
+
+entity Disciplina {
+	nome String required
+	dataInicio LocalDate required
+	cargaHoraria Integer required
+    credito Integer
+}
+
+entity Matricula {
+	ano LocalDate
+	notaFinal Double
+    nFaltas Integer
+}
+
+entity Ministrada {
+	ano LocalDate
+    ch Integer
+}
+
+entity Endereco {
+	cep Integer
+    logradouro String
+    complemento String
+    numero Integer
+    cidade String
+    uf String
+    bairro Integer
+}
+
+entity Telefone {
+	numero String
+}
+
+
+relationship OneToOne {
+	Discente{endereco(logradouro)} to Endereco
+    Docente{endereco(logradouro)} to Endereco
+}
+
+relationship ManyToOne {
+    Matricula{discente(nome)} to Discente
+    Matricula{disciplna(nome)} to Disciplina
+    Ministrada{disciplna(nome)} to Disciplina
+    Ministrada{docente(nome)} to Docente
+    Telefone{discente(nome)} to Discente
+    Telefone{discente(nome)} to Docente
+}
+

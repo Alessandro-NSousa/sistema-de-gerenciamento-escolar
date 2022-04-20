@@ -1,0 +1,28 @@
+{
+  "sistemaEscolarApp": {
+    "docente": {
+      "home": {
+        "title": "Docentes",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Docente",
+        "createOrEditLabel": "Criar ou editar Docente",
+        "notFound": "Nenhum Docente encontrado"
+      },
+      "created": "Um novo Docente foi criado com o identificador {{ param }}",
+      "updated": "Um Docente foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Docente foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Docente {{ id }}?"
+      },
+      "detail": {
+        "title": "Docente"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf",
+      "gerero": "Gerero",
+      "dataNascimento": "Data Nascimento",
+      "endereco": "Endereco"
+    }
+  }
+}

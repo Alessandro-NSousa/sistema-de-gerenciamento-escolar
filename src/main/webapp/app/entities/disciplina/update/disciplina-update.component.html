@@ -1,0 +1,109 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-disciplina-heading"
+        data-cy="DisciplinaCreateUpdateHeading"
+        jhiTranslate="sistemaEscolarApp.disciplina.home.createOrEditLabel"
+      >
+        Create or edit a Disciplina
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.disciplina.nome" for="field_nome">Nome</label>
+          <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
+          <div *ngIf="editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nome')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.disciplina.dataInicio" for="field_dataInicio">Data Inicio</label>
+          <div class="input-group">
+            <input
+              id="field_dataInicio"
+              data-cy="dataInicio"
+              type="text"
+              class="form-control"
+              name="dataInicio"
+              ngbDatepicker
+              #dataInicioDp="ngbDatepicker"
+              formControlName="dataInicio"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataInicioDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('dataInicio')!.invalid && (editForm.get('dataInicio')!.dirty || editForm.get('dataInicio')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dataInicio')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.disciplina.cargaHoraria" for="field_cargaHoraria">Carga Horaria</label>
+          <input
+            type="number"
+            class="form-control"
+            name="cargaHoraria"
+            id="field_cargaHoraria"
+            data-cy="cargaHoraria"
+            formControlName="cargaHoraria"
+          />
+          <div
+            *ngIf="editForm.get('cargaHoraria')!.invalid && (editForm.get('cargaHoraria')!.dirty || editForm.get('cargaHoraria')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cargaHoraria')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('cargaHoraria')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.disciplina.credito" for="field_credito">Credito</label>
+          <input type="number" class="form-control" name="credito" id="field_credito" data-cy="credito" formControlName="credito" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

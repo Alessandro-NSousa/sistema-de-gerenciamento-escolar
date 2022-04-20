@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="telefone">
+      <h2 data-cy="telefoneDetailsHeading"><span jhiTranslate="sistemaEscolarApp.telefone.detail.title">Telefone</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ telefone.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.telefone.numero">Numero</span></dt>
+        <dd>
+          <span>{{ telefone.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.telefone.discente">Discente</span></dt>
+        <dd>
+          <div *ngIf="telefone.discente">
+            <a [routerLink]="['/discente', telefone.discente?.id, 'view']">{{ telefone.discente?.nome }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.telefone.discente">Discente</span></dt>
+        <dd>
+          <div *ngIf="telefone.discente">
+            <a [routerLink]="['/docente', telefone.discente?.id, 'view']">{{ telefone.discente?.nome }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/telefone', telefone.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

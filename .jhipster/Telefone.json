@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20220420135329",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "telefone",
+  "fields": [
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Telefone",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "discente",
+      "otherEntityRelationshipName": "telefone",
+      "relationshipName": "discente",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "docente",
+      "otherEntityRelationshipName": "telefone",
+      "relationshipName": "discente",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

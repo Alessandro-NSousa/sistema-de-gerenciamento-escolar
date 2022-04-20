@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="docente">
+      <h2 data-cy="docenteDetailsHeading"><span jhiTranslate="sistemaEscolarApp.docente.detail.title">Docente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ docente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.docente.nome">Nome</span></dt>
+        <dd>
+          <span>{{ docente.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.docente.cpf">Cpf</span></dt>
+        <dd>
+          <span>{{ docente.cpf }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.docente.gerero">Gerero</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sistemaEscolarApp.Sexo.' + docente.gerero }}">{{ docente.gerero }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.docente.dataNascimento">Data Nascimento</span></dt>
+        <dd>
+          <span>{{ docente.dataNascimento | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.docente.endereco">Endereco</span></dt>
+        <dd>
+          <div *ngIf="docente.endereco">
+            <a [routerLink]="['/endereco', docente.endereco?.id, 'view']">{{ docente.endereco?.logradouro }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/docente', docente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20220420135323",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "discente",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "matricula",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "curso",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "genero",
+      "fieldType": "Sexo",
+      "fieldValues": "F,M"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Discente",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "logradouro",
+      "otherEntityName": "endereco",
+      "otherEntityRelationshipName": "discente",
+      "ownerSide": true,
+      "relationshipName": "endereco",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

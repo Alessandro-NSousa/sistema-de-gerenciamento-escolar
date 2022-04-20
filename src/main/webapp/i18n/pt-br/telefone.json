@@ -1,0 +1,26 @@
+{
+  "sistemaEscolarApp": {
+    "telefone": {
+      "home": {
+        "title": "Telefones",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Telefone",
+        "createOrEditLabel": "Criar ou editar Telefone",
+        "notFound": "Nenhum Telefone encontrado"
+      },
+      "created": "Um novo Telefone foi criado com o identificador {{ param }}",
+      "updated": "Um Telefone foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Telefone foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Telefone {{ id }}?"
+      },
+      "detail": {
+        "title": "Telefone"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "discente": "Discente",
+      "discente": "Discente"
+    }
+  }
+}

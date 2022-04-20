@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="matricula">
+      <h2 data-cy="matriculaDetailsHeading"><span jhiTranslate="sistemaEscolarApp.matricula.detail.title">Matricula</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ matricula.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.matricula.ano">Ano</span></dt>
+        <dd>
+          <span>{{ matricula.ano | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.matricula.notaFinal">Nota Final</span></dt>
+        <dd>
+          <span>{{ matricula.notaFinal }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.matricula.nFaltas">N Faltas</span></dt>
+        <dd>
+          <span>{{ matricula.nFaltas }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.matricula.discente">Discente</span></dt>
+        <dd>
+          <div *ngIf="matricula.discente">
+            <a [routerLink]="['/discente', matricula.discente?.id, 'view']">{{ matricula.discente?.nome }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.matricula.disciplna">Disciplna</span></dt>
+        <dd>
+          <div *ngIf="matricula.disciplna">
+            <a [routerLink]="['/disciplina', matricula.disciplna?.id, 'view']">{{ matricula.disciplna?.nome }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/matricula', matricula.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
