@@ -32,11 +32,11 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="sistemaEscolarApp.telefone.discente" for="field_discente">Discente</label>
-          <select class="form-control" id="field_discente" data-cy="discente" name="discente" formControlName="discente">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.telefone.docente" for="field_docente">Docente</label>
+          <select class="form-control" id="field_docente" data-cy="docente" name="docente" formControlName="docente">
             <option [ngValue]="null"></option>
             <option
-              [ngValue]="docenteOption.id === editForm.get('discente')!.value?.id ? editForm.get('discente')!.value : docenteOption"
+              [ngValue]="docenteOption.id === editForm.get('docente')!.value?.id ? editForm.get('docente')!.value : docenteOption"
               *ngFor="let docenteOption of docentesSharedCollection; trackBy: trackDocenteById"
             >
               {{ docenteOption.nome }}

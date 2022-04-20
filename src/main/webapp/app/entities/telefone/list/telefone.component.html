@@ -35,7 +35,7 @@
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.telefone.numero">Numero</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.telefone.discente">Discente</span></th>
-          <th scope="col"><span jhiTranslate="sistemaEscolarApp.telefone.discente">Discente</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.telefone.docente">Docente</span></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -51,8 +51,8 @@
             </div>
           </td>
           <td>
-            <div *ngIf="telefone.discente">
-              <a [routerLink]="['/docente', telefone.discente?.id, 'view']">{{ telefone.discente?.nome }}</a>
+            <div *ngIf="telefone.docente">
+              <a [routerLink]="['/docente', telefone.docente?.id, 'view']">{{ telefone.docente?.nome }}</a>
             </div>
           </td>
           <td class="text-end">

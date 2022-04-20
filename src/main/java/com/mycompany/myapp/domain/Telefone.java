@@ -26,14 +26,12 @@ public class Telefone implements Serializable {
     private String numero;
 
     @ManyToOne
-    @ManyToOne
     @JsonIgnoreProperties(value = { "endereco" }, allowSetters = true)
     private Discente discente;
 
     @ManyToOne
-    @ManyToOne
     @JsonIgnoreProperties(value = { "endereco" }, allowSetters = true)
-    private Docente discente;
+    private Docente docente;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -76,16 +74,16 @@ public class Telefone implements Serializable {
         return this;
     }
 
-    public Docente getDiscente() {
-        return this.discente;
+    public Docente getDocente() {
+        return this.docente;
     }
 
-    public void setDiscente(Docente docente) {
-        this.discente = docente;
+    public void setDocente(Docente docente) {
+        this.docente = docente;
     }
 
-    public Telefone discente(Docente docente) {
-        this.setDiscente(docente);
+    public Telefone docente(Docente docente) {
+        this.setDocente(docente);
         return this;
     }
 

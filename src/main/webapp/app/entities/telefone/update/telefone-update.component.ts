@@ -26,7 +26,7 @@ export class TelefoneUpdateComponent implements OnInit {
     id: [],
     numero: [],
     discente: [],
-    discente: [],
+    docente: [],
   });
 
   constructor(
@@ -91,14 +91,14 @@ export class TelefoneUpdateComponent implements OnInit {
       id: telefone.id,
       numero: telefone.numero,
       discente: telefone.discente,
-      discente: telefone.discente,
+      docente: telefone.docente,
     });
 
     this.discentesSharedCollection = this.discenteService.addDiscenteToCollectionIfMissing(
       this.discentesSharedCollection,
       telefone.discente
     );
-    this.docentesSharedCollection = this.docenteService.addDocenteToCollectionIfMissing(this.docentesSharedCollection, telefone.discente);
+    this.docentesSharedCollection = this.docenteService.addDocenteToCollectionIfMissing(this.docentesSharedCollection, telefone.docente);
   }
 
   protected loadRelationshipsOptions(): void {
@@ -116,7 +116,7 @@ export class TelefoneUpdateComponent implements OnInit {
       .query()
       .pipe(map((res: HttpResponse<IDocente[]>) => res.body ?? []))
       .pipe(
-        map((docentes: IDocente[]) => this.docenteService.addDocenteToCollectionIfMissing(docentes, this.editForm.get('discente')!.value))
+        map((docentes: IDocente[]) => this.docenteService.addDocenteToCollectionIfMissing(docentes, this.editForm.get('docente')!.value))
       )
       .subscribe((docentes: IDocente[]) => (this.docentesSharedCollection = docentes));
   }
@@ -127,7 +127,7 @@ export class TelefoneUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       numero: this.editForm.get(['numero'])!.value,
       discente: this.editForm.get(['discente'])!.value,
-      discente: this.editForm.get(['discente'])!.value,
+      docente: this.editForm.get(['docente'])!.value,
     };
   }
 }

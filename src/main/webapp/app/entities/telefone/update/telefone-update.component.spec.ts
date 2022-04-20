@@ -71,12 +71,12 @@ describe('Telefone Management Update Component', () => {
 
     it('Should call Docente query and add missing value', () => {
       const telefone: ITelefone = { id: 456 };
-      const discente: IDocente = { id: 15809 };
-      telefone.discente = discente;
+      const docente: IDocente = { id: 15809 };
+      telefone.docente = docente;
 
       const docenteCollection: IDocente[] = [{ id: 31329 }];
       jest.spyOn(docenteService, 'query').mockReturnValue(of(new HttpResponse({ body: docenteCollection })));
-      const additionalDocentes = [discente];
+      const additionalDocentes = [docente];
       const expectedCollection: IDocente[] = [...additionalDocentes, ...docenteCollection];
       jest.spyOn(docenteService, 'addDocenteToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -92,15 +92,15 @@ describe('Telefone Management Update Component', () => {
       const telefone: ITelefone = { id: 456 };
       const discente: IDiscente = { id: 96805 };
       telefone.discente = discente;
-      const discente: IDocente = { id: 46785 };
-      telefone.discente = discente;
+      const docente: IDocente = { id: 46785 };
+      telefone.docente = docente;
 
       activatedRoute.data = of({ telefone });
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(telefone));
       expect(comp.discentesSharedCollection).toContain(discente);
-      expect(comp.docentesSharedCollection).toContain(discente);
+      expect(comp.docentesSharedCollection).toContain(docente);
     });
   });
 

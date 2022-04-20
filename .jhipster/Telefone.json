@@ -27,7 +27,7 @@
       "otherEntityField": "nome",
       "otherEntityName": "docente",
       "otherEntityRelationshipName": "telefone",
-      "relationshipName": "discente",
+      "relationshipName": "docente",
       "relationshipType": "many-to-one"
     }
   ],
