@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220420135326",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "matricula",
+  "fields": [
+    {
+      "fieldName": "ano",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "notaFinal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "nFaltas",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Matricula",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "discente",
+      "otherEntityRelationshipName": "matricula",
+      "relationshipName": "discente",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "disciplina",
+      "otherEntityRelationshipName": "matricula",
+      "relationshipName": "disciplna",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

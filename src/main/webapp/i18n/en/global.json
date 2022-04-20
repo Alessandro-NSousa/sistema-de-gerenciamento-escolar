@@ -7,6 +7,13 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "discente": "Discente",
+        "docente": "Docente",
+        "disciplina": "Disciplina",
+        "matricula": "Matricula",
+        "ministrada": "Ministrada",
+        "endereco": "Endereco",
+        "telefone": "Telefone",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,27 @@
+{
+  "sistemaEscolarApp": {
+    "ministrada": {
+      "home": {
+        "title": "Ministradas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Ministrada",
+        "createOrEditLabel": "Criar ou editar Ministrada",
+        "notFound": "Nenhum Ministrada encontrado"
+      },
+      "created": "Um novo Ministrada foi criado com o identificador {{ param }}",
+      "updated": "Um Ministrada foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Ministrada foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Ministrada {{ id }}?"
+      },
+      "detail": {
+        "title": "Ministrada"
+      },
+      "id": "ID",
+      "ano": "Ano",
+      "ch": "Ch",
+      "disciplna": "Disciplna",
+      "docente": "Docente"
+    }
+  }
+}

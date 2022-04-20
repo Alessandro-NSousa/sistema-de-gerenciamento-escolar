@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ministrada">
+      <h2 data-cy="ministradaDetailsHeading"><span jhiTranslate="sistemaEscolarApp.ministrada.detail.title">Ministrada</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ministrada.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.ministrada.ano">Ano</span></dt>
+        <dd>
+          <span>{{ ministrada.ano | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.ministrada.ch">Ch</span></dt>
+        <dd>
+          <span>{{ ministrada.ch }}</span>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.ministrada.disciplna">Disciplna</span></dt>
+        <dd>
+          <div *ngIf="ministrada.disciplna">
+            <a [routerLink]="['/disciplina', ministrada.disciplna?.id, 'view']">{{ ministrada.disciplna?.nome }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sistemaEscolarApp.ministrada.docente">Docente</span></dt>
+        <dd>
+          <div *ngIf="ministrada.docente">
+            <a [routerLink]="['/docente', ministrada.docente?.id, 'view']">{{ ministrada.docente?.nome }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ministrada', ministrada.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

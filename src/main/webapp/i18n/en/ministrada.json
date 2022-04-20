@@ -1,0 +1,27 @@
+{
+  "sistemaEscolarApp": {
+    "ministrada": {
+      "home": {
+        "title": "Ministradas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ministrada",
+        "createOrEditLabel": "Create or edit a Ministrada",
+        "notFound": "No Ministradas found"
+      },
+      "created": "A new Ministrada is created with identifier {{ param }}",
+      "updated": "A Ministrada is updated with identifier {{ param }}",
+      "deleted": "A Ministrada is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ministrada {{ id }}?"
+      },
+      "detail": {
+        "title": "Ministrada"
+      },
+      "id": "ID",
+      "ano": "Ano",
+      "ch": "Ch",
+      "disciplna": "Disciplna",
+      "docente": "Docente"
+    }
+  }
+}

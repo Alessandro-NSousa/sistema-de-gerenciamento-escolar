@@ -1,0 +1,29 @@
+{
+  "sistemaEscolarApp": {
+    "discente": {
+      "home": {
+        "title": "Discentes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Discente",
+        "createOrEditLabel": "Create or edit a Discente",
+        "notFound": "No Discentes found"
+      },
+      "created": "A new Discente is created with identifier {{ param }}",
+      "updated": "A Discente is updated with identifier {{ param }}",
+      "deleted": "A Discente is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Discente {{ id }}?"
+      },
+      "detail": {
+        "title": "Discente"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "cpf": "Cpf",
+      "matricula": "Matricula",
+      "curso": "Curso",
+      "genero": "Genero",
+      "endereco": "Endereco"
+    }
+  }
+}

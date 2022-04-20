@@ -1,0 +1,27 @@
+{
+  "sistemaEscolarApp": {
+    "disciplina": {
+      "home": {
+        "title": "Disciplinas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Disciplina",
+        "createOrEditLabel": "Criar ou editar Disciplina",
+        "notFound": "Nenhum Disciplina encontrado"
+      },
+      "created": "Um novo Disciplina foi criado com o identificador {{ param }}",
+      "updated": "Um Disciplina foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Disciplina foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Disciplina {{ id }}?"
+      },
+      "detail": {
+        "title": "Disciplina"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "dataInicio": "Data Inicio",
+      "cargaHoraria": "Carga Horaria",
+      "credito": "Credito"
+    }
+  }
+}

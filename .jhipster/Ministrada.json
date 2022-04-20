@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220420135327",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ministrada",
+  "fields": [
+    {
+      "fieldName": "ano",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "ch",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ministrada",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "disciplina",
+      "otherEntityRelationshipName": "ministrada",
+      "relationshipName": "disciplna",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "docente",
+      "otherEntityRelationshipName": "ministrada",
+      "relationshipName": "docente",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

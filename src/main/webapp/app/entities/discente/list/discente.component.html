@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="DiscenteHeading">
+    <span jhiTranslate="sistemaEscolarApp.discente.home.title">Discentes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sistemaEscolarApp.discente.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-discente"
+        [routerLink]="['/discente/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sistemaEscolarApp.discente.home.createLabel"> Create a new Discente </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="discentes?.length === 0">
+    <span jhiTranslate="sistemaEscolarApp.discente.home.notFound">No discentes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="discentes && discentes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.nome">Nome</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.cpf">Cpf</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.matricula">Matricula</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.curso">Curso</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.genero">Genero</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.endereco">Endereco</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let discente of discentes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/discente', discente.id, 'view']">{{ discente.id }}</a>
+          </td>
+          <td>{{ discente.nome }}</td>
+          <td>{{ discente.cpf }}</td>
+          <td>{{ discente.matricula }}</td>
+          <td>{{ discente.curso }}</td>
+          <td jhiTranslate="{{ 'sistemaEscolarApp.Sexo.' + discente.genero }}">{{ discente.genero }}</td>
+          <td>
+            <div *ngIf="discente.endereco">
+              <a [routerLink]="['/endereco', discente.endereco?.id, 'view']">{{ discente.endereco?.logradouro }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/discente', discente.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/discente', discente.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(discente)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

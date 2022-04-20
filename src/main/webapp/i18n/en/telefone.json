@@ -1,0 +1,26 @@
+{
+  "sistemaEscolarApp": {
+    "telefone": {
+      "home": {
+        "title": "Telefones",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Telefone",
+        "createOrEditLabel": "Create or edit a Telefone",
+        "notFound": "No Telefones found"
+      },
+      "created": "A new Telefone is created with identifier {{ param }}",
+      "updated": "A Telefone is updated with identifier {{ param }}",
+      "deleted": "A Telefone is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Telefone {{ id }}?"
+      },
+      "detail": {
+        "title": "Telefone"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "discente": "Discente",
+      "discente": "Discente"
+    }
+  }
+}
