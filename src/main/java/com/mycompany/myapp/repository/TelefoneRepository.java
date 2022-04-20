@@ -27,16 +27,16 @@ public interface TelefoneRepository extends JpaRepository<Telefone, Long> {
     }
 
     @Query(
-        value = "select distinct telefone from Telefone telefone left join fetch telefone.discente left join fetch telefone.discente",
+        value = "select distinct telefone from Telefone telefone left join fetch telefone.discente left join fetch telefone.docente",
         countQuery = "select count(distinct telefone) from Telefone telefone"
     )
     Page<Telefone> findAllWithToOneRelationships(Pageable pageable);
 
-    @Query("select distinct telefone from Telefone telefone left join fetch telefone.discente left join fetch telefone.discente")
+    @Query("select distinct telefone from Telefone telefone left join fetch telefone.discente left join fetch telefone.docente")
     List<Telefone> findAllWithToOneRelationships();
 
     @Query(
-        "select telefone from Telefone telefone left join fetch telefone.discente left join fetch telefone.discente where telefone.id =:id"
+        "select telefone from Telefone telefone left join fetch telefone.discente left join fetch telefone.docente where telefone.id =:id"
     )
     Optional<Telefone> findOneWithToOneRelationships(@Param("id") Long id);
 }

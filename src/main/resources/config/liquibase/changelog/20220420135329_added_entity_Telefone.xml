@@ -20,7 +20,7 @@
             <column name="discente_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="discente_id" type="bigint">
+            <column name="docente_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

@@ -64,6 +64,6 @@ relationship ManyToOne {
     Ministrada{disciplna(nome)} to Disciplina
     Ministrada{docente(nome)} to Docente
     Telefone{discente(nome)} to Discente
-    Telefone{discente(nome)} to Docente
+    Telefone{docente(nome)} to Docente
 }
 

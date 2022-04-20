@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="discente"/>
 
-        <addForeignKeyConstraint baseColumnNames="discente_id"
+        <addForeignKeyConstraint baseColumnNames="docente_id"
                                  baseTableName="telefone"
-                                 constraintName="fk_telefone__discente_id"
+                                 constraintName="fk_telefone__docente_id"
                                  referencedColumnNames="id"
                                  referencedTableName="docente"/>
     </changeSet>
