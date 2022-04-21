@@ -28,6 +28,7 @@ export class DiscenteUpdateComponent implements OnInit {
     matricula: [null, [Validators.required]],
     curso: [null, [Validators.required]],
     genero: [],
+    nascimento: [],
     endereco: [],
   });
 
@@ -91,6 +92,7 @@ export class DiscenteUpdateComponent implements OnInit {
       matricula: discente.matricula,
       curso: discente.curso,
       genero: discente.genero,
+      nascimento: discente.nascimento,
       endereco: discente.endereco,
     });
 
@@ -118,6 +120,7 @@ export class DiscenteUpdateComponent implements OnInit {
       matricula: this.editForm.get(['matricula'])!.value,
       curso: this.editForm.get(['curso'])!.value,
       genero: this.editForm.get(['genero'])!.value,
+      nascimento: this.editForm.get(['nascimento'])!.value,
       endereco: this.editForm.get(['endereco'])!.value,
     };
   }

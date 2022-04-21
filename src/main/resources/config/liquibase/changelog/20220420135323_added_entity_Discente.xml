@@ -20,13 +20,16 @@
             <column name="cpf" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="matricula" type="integer">
+            <column name="matricula" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             <column name="curso" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             <column name="genero" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nascimento" type="date">
                 <constraints nullable="true" />
             </column>
             <column name="endereco_id" type="bigint">
@@ -55,9 +58,10 @@
             <column name="id" type="numeric"/>
             <column name="nome" type="string"/>
             <column name="cpf" type="string"/>
-            <column name="matricula" type="numeric"/>
+            <column name="matricula" type="string"/>
             <column name="curso" type="string"/>
             <column name="genero" type="string"/>
+            <column name="nascimento" type="date"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

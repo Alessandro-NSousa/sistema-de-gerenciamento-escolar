@@ -1,24 +1,24 @@
 export interface IEndereco {
   id?: number;
-  cep?: number | null;
+  cep?: string | null;
   logradouro?: string | null;
   complemento?: string | null;
   numero?: number | null;
   cidade?: string | null;
   uf?: string | null;
-  bairro?: number | null;
+  bairro?: string | null;
 }
 
 export class Endereco implements IEndereco {
   constructor(
     public id?: number,
-    public cep?: number | null,
+    public cep?: string | null,
     public logradouro?: string | null,
     public complemento?: string | null,
     public numero?: number | null,
     public cidade?: string | null,
     public uf?: string | null,
-    public bairro?: number | null
+    public bairro?: string | null
   ) {}
 }
 

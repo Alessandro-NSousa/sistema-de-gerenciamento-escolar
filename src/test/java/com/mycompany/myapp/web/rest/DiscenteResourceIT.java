@@ -10,6 +10,8 @@ import com.mycompany.myapp.IntegrationTest;
 import com.mycompany.myapp.domain.Discente;
 import com.mycompany.myapp.domain.enumeration.Sexo;
 import com.mycompany.myapp.repository.DiscenteRepository;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -44,14 +46,17 @@ class DiscenteResourceIT {
     private static final String DEFAULT_CPF = "AAAAAAAAAA";
     private static final String UPDATED_CPF = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_MATRICULA = 1;
-    private static final Integer UPDATED_MATRICULA = 2;
+    private static final String DEFAULT_MATRICULA = "AAAAAAAAAA";
+    private static final String UPDATED_MATRICULA = "BBBBBBBBBB";
 
     private static final String DEFAULT_CURSO = "AAAAAAAAAA";
     private static final String UPDATED_CURSO = "BBBBBBBBBB";
 
     private static final Sexo DEFAULT_GENERO = Sexo.F;
     private static final Sexo UPDATED_GENERO = Sexo.M;
+
+    private static final LocalDate DEFAULT_NASCIMENTO = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_NASCIMENTO = LocalDate.now(ZoneId.systemDefault());
 
     private static final String ENTITY_API_URL = "/api/discentes";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -85,7 +90,8 @@ class DiscenteResourceIT {
             .cpf(DEFAULT_CPF)
             .matricula(DEFAULT_MATRICULA)
             .curso(DEFAULT_CURSO)
-            .genero(DEFAULT_GENERO);
+            .genero(DEFAULT_GENERO)
+            .nascimento(DEFAULT_NASCIMENTO);
         return discente;
     }
 
@@ -101,7 +107,8 @@ class DiscenteResourceIT {
             .cpf(UPDATED_CPF)
             .matricula(UPDATED_MATRICULA)
             .curso(UPDATED_CURSO)
-            .genero(UPDATED_GENERO);
+            .genero(UPDATED_GENERO)
+            .nascimento(UPDATED_NASCIMENTO);
         return discente;
     }
 
@@ -128,6 +135,7 @@ class DiscenteResourceIT {
         assertThat(testDiscente.getMatricula()).isEqualTo(DEFAULT_MATRICULA);
         assertThat(testDiscente.getCurso()).isEqualTo(DEFAULT_CURSO);
         assertThat(testDiscente.getGenero()).isEqualTo(DEFAULT_GENERO);
+        assertThat(testDiscente.getNascimento()).isEqualTo(DEFAULT_NASCIMENTO);
     }
 
     @Test
@@ -232,7 +240,8 @@ class DiscenteResourceIT {
             .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF)))
             .andExpect(jsonPath("$.[*].matricula").value(hasItem(DEFAULT_MATRICULA)))
             .andExpect(jsonPath("$.[*].curso").value(hasItem(DEFAULT_CURSO)))
-            .andExpect(jsonPath("$.[*].genero").value(hasItem(DEFAULT_GENERO.toString())));
+            .andExpect(jsonPath("$.[*].genero").value(hasItem(DEFAULT_GENERO.toString())))
+            .andExpect(jsonPath("$.[*].nascimento").value(hasItem(DEFAULT_NASCIMENTO.toString())));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -269,7 +278,8 @@ class DiscenteResourceIT {
             .andExpect(jsonPath("$.cpf").value(DEFAULT_CPF))
             .andExpect(jsonPath("$.matricula").value(DEFAULT_MATRICULA))
             .andExpect(jsonPath("$.curso").value(DEFAULT_CURSO))
-            .andExpect(jsonPath("$.genero").value(DEFAULT_GENERO.toString()));
+            .andExpect(jsonPath("$.genero").value(DEFAULT_GENERO.toString()))
+            .andExpect(jsonPath("$.nascimento").value(DEFAULT_NASCIMENTO.toString()));
     }
 
     @Test
@@ -291,7 +301,13 @@ class DiscenteResourceIT {
         Discente updatedDiscente = discenteRepository.findById(discente.getId()).get();
         // Disconnect from session so that the updates on updatedDiscente are not directly saved in db
         em.detach(updatedDiscente);
-        updatedDiscente.nome(UPDATED_NOME).cpf(UPDATED_CPF).matricula(UPDATED_MATRICULA).curso(UPDATED_CURSO).genero(UPDATED_GENERO);
+        updatedDiscente
+            .nome(UPDATED_NOME)
+            .cpf(UPDATED_CPF)
+            .matricula(UPDATED_MATRICULA)
+            .curso(UPDATED_CURSO)
+            .genero(UPDATED_GENERO)
+            .nascimento(UPDATED_NASCIMENTO);
 
         restDiscenteMockMvc
             .perform(
@@ -310,6 +326,7 @@ class DiscenteResourceIT {
         assertThat(testDiscente.getMatricula()).isEqualTo(UPDATED_MATRICULA);
         assertThat(testDiscente.getCurso()).isEqualTo(UPDATED_CURSO);
         assertThat(testDiscente.getGenero()).isEqualTo(UPDATED_GENERO);
+        assertThat(testDiscente.getNascimento()).isEqualTo(UPDATED_NASCIMENTO);
     }
 
     @Test
@@ -399,6 +416,7 @@ class DiscenteResourceIT {
         assertThat(testDiscente.getMatricula()).isEqualTo(DEFAULT_MATRICULA);
         assertThat(testDiscente.getCurso()).isEqualTo(UPDATED_CURSO);
         assertThat(testDiscente.getGenero()).isEqualTo(UPDATED_GENERO);
+        assertThat(testDiscente.getNascimento()).isEqualTo(DEFAULT_NASCIMENTO);
     }
 
     @Test
@@ -413,7 +431,13 @@ class DiscenteResourceIT {
         Discente partialUpdatedDiscente = new Discente();
         partialUpdatedDiscente.setId(discente.getId());
 
-        partialUpdatedDiscente.nome(UPDATED_NOME).cpf(UPDATED_CPF).matricula(UPDATED_MATRICULA).curso(UPDATED_CURSO).genero(UPDATED_GENERO);
+        partialUpdatedDiscente
+            .nome(UPDATED_NOME)
+            .cpf(UPDATED_CPF)
+            .matricula(UPDATED_MATRICULA)
+            .curso(UPDATED_CURSO)
+            .genero(UPDATED_GENERO)
+            .nascimento(UPDATED_NASCIMENTO);
 
         restDiscenteMockMvc
             .perform(
@@ -432,6 +456,7 @@ class DiscenteResourceIT {
         assertThat(testDiscente.getMatricula()).isEqualTo(UPDATED_MATRICULA);
         assertThat(testDiscente.getCurso()).isEqualTo(UPDATED_CURSO);
         assertThat(testDiscente.getGenero()).isEqualTo(UPDATED_GENERO);
+        assertThat(testDiscente.getNascimento()).isEqualTo(UPDATED_NASCIMENTO);
     }
 
     @Test

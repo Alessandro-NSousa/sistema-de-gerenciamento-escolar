@@ -134,8 +134,8 @@ public class DocenteResource {
                 if (docente.getGerero() != null) {
                     existingDocente.setGerero(docente.getGerero());
                 }
-                if (docente.getDataNascimento() != null) {
-                    existingDocente.setDataNascimento(docente.getDataNascimento());
+                if (docente.getNascimento() != null) {
+                    existingDocente.setNascimento(docente.getNascimento());
                 }
 
                 return existingDocente;

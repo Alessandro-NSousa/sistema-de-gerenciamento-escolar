@@ -8,7 +8,7 @@ export interface IMatricula {
   notaFinal?: number | null;
   nFaltas?: number | null;
   discente?: IDiscente | null;
-  disciplna?: IDisciplina | null;
+  disciplina?: IDisciplina | null;
 }
 
 export class Matricula implements IMatricula {
@@ -18,7 +18,7 @@ export class Matricula implements IMatricula {
     public notaFinal?: number | null,
     public nFaltas?: number | null,
     public discente?: IDiscente | null,
-    public disciplna?: IDisciplina | null
+    public disciplina?: IDisciplina | null
   ) {}
 }
 

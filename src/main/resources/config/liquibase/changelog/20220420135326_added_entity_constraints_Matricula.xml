@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="discente"/>
 
-        <addForeignKeyConstraint baseColumnNames="disciplna_id"
+        <addForeignKeyConstraint baseColumnNames="disciplina_id"
                                  baseTableName="matricula"
-                                 constraintName="fk_matricula__disciplna_id"
+                                 constraintName="fk_matricula__disciplina_id"
                                  referencedColumnNames="id"
                                  referencedTableName="disciplina"/>
     </changeSet>

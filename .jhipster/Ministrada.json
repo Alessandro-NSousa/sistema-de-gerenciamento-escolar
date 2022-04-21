@@ -24,7 +24,7 @@
       "otherEntityField": "nome",
       "otherEntityName": "disciplina",
       "otherEntityRelationshipName": "ministrada",
-      "relationshipName": "disciplna",
+      "relationshipName": "disciplina",
       "relationshipType": "many-to-one"
     },
     {

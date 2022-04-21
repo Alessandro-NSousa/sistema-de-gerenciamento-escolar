@@ -38,6 +38,7 @@
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.matricula">Matricula</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.curso">Curso</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.genero">Genero</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.nascimento">Nascimento</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.discente.endereco">Endereco</span></th>
           <th scope="col"></th>
         </tr>
@@ -52,6 +53,7 @@
           <td>{{ discente.matricula }}</td>
           <td>{{ discente.curso }}</td>
           <td jhiTranslate="{{ 'sistemaEscolarApp.Sexo.' + discente.genero }}">{{ discente.genero }}</td>
+          <td>{{ discente.nascimento | formatMediumDate }}</td>
           <td>
             <div *ngIf="discente.endereco">
               <a [routerLink]="['/endereco', discente.endereco?.id, 'view']">{{ discente.endereco?.logradouro }}</a>

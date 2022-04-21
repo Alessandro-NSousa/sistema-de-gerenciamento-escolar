@@ -21,7 +21,7 @@
       "nome": "Nome",
       "cpf": "Cpf",
       "gerero": "Gerero",
-      "dataNascimento": "Data Nascimento",
+      "nascimento": "Nascimento",
       "endereco": "Endereco"
     }
   }

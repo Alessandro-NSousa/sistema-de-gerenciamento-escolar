@@ -49,8 +49,8 @@ class DocenteResourceIT {
     private static final Sexo DEFAULT_GERERO = Sexo.F;
     private static final Sexo UPDATED_GERERO = Sexo.M;
 
-    private static final LocalDate DEFAULT_DATA_NASCIMENTO = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATA_NASCIMENTO = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_NASCIMENTO = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_NASCIMENTO = LocalDate.now(ZoneId.systemDefault());
 
     private static final String ENTITY_API_URL = "/api/docentes";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -79,7 +79,7 @@ class DocenteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Docente createEntity(EntityManager em) {
-        Docente docente = new Docente().nome(DEFAULT_NOME).cpf(DEFAULT_CPF).gerero(DEFAULT_GERERO).dataNascimento(DEFAULT_DATA_NASCIMENTO);
+        Docente docente = new Docente().nome(DEFAULT_NOME).cpf(DEFAULT_CPF).gerero(DEFAULT_GERERO).nascimento(DEFAULT_NASCIMENTO);
         return docente;
     }
 
@@ -90,7 +90,7 @@ class DocenteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Docente createUpdatedEntity(EntityManager em) {
-        Docente docente = new Docente().nome(UPDATED_NOME).cpf(UPDATED_CPF).gerero(UPDATED_GERERO).dataNascimento(UPDATED_DATA_NASCIMENTO);
+        Docente docente = new Docente().nome(UPDATED_NOME).cpf(UPDATED_CPF).gerero(UPDATED_GERERO).nascimento(UPDATED_NASCIMENTO);
         return docente;
     }
 
@@ -115,7 +115,7 @@ class DocenteResourceIT {
         assertThat(testDocente.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testDocente.getCpf()).isEqualTo(DEFAULT_CPF);
         assertThat(testDocente.getGerero()).isEqualTo(DEFAULT_GERERO);
-        assertThat(testDocente.getDataNascimento()).isEqualTo(DEFAULT_DATA_NASCIMENTO);
+        assertThat(testDocente.getNascimento()).isEqualTo(DEFAULT_NASCIMENTO);
     }
 
     @Test
@@ -185,7 +185,7 @@ class DocenteResourceIT {
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF)))
             .andExpect(jsonPath("$.[*].gerero").value(hasItem(DEFAULT_GERERO.toString())))
-            .andExpect(jsonPath("$.[*].dataNascimento").value(hasItem(DEFAULT_DATA_NASCIMENTO.toString())));
+            .andExpect(jsonPath("$.[*].nascimento").value(hasItem(DEFAULT_NASCIMENTO.toString())));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -221,7 +221,7 @@ class DocenteResourceIT {
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.cpf").value(DEFAULT_CPF))
             .andExpect(jsonPath("$.gerero").value(DEFAULT_GERERO.toString()))
-            .andExpect(jsonPath("$.dataNascimento").value(DEFAULT_DATA_NASCIMENTO.toString()));
+            .andExpect(jsonPath("$.nascimento").value(DEFAULT_NASCIMENTO.toString()));
     }
 
     @Test
@@ -243,7 +243,7 @@ class DocenteResourceIT {
         Docente updatedDocente = docenteRepository.findById(docente.getId()).get();
         // Disconnect from session so that the updates on updatedDocente are not directly saved in db
         em.detach(updatedDocente);
-        updatedDocente.nome(UPDATED_NOME).cpf(UPDATED_CPF).gerero(UPDATED_GERERO).dataNascimento(UPDATED_DATA_NASCIMENTO);
+        updatedDocente.nome(UPDATED_NOME).cpf(UPDATED_CPF).gerero(UPDATED_GERERO).nascimento(UPDATED_NASCIMENTO);
 
         restDocenteMockMvc
             .perform(
@@ -260,7 +260,7 @@ class DocenteResourceIT {
         assertThat(testDocente.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testDocente.getCpf()).isEqualTo(UPDATED_CPF);
         assertThat(testDocente.getGerero()).isEqualTo(UPDATED_GERERO);
-        assertThat(testDocente.getDataNascimento()).isEqualTo(UPDATED_DATA_NASCIMENTO);
+        assertThat(testDocente.getNascimento()).isEqualTo(UPDATED_NASCIMENTO);
     }
 
     @Test
@@ -348,7 +348,7 @@ class DocenteResourceIT {
         assertThat(testDocente.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testDocente.getCpf()).isEqualTo(DEFAULT_CPF);
         assertThat(testDocente.getGerero()).isEqualTo(DEFAULT_GERERO);
-        assertThat(testDocente.getDataNascimento()).isEqualTo(DEFAULT_DATA_NASCIMENTO);
+        assertThat(testDocente.getNascimento()).isEqualTo(DEFAULT_NASCIMENTO);
     }
 
     @Test
@@ -363,7 +363,7 @@ class DocenteResourceIT {
         Docente partialUpdatedDocente = new Docente();
         partialUpdatedDocente.setId(docente.getId());
 
-        partialUpdatedDocente.nome(UPDATED_NOME).cpf(UPDATED_CPF).gerero(UPDATED_GERERO).dataNascimento(UPDATED_DATA_NASCIMENTO);
+        partialUpdatedDocente.nome(UPDATED_NOME).cpf(UPDATED_CPF).gerero(UPDATED_GERERO).nascimento(UPDATED_NASCIMENTO);
 
         restDocenteMockMvc
             .perform(
@@ -380,7 +380,7 @@ class DocenteResourceIT {
         assertThat(testDocente.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testDocente.getCpf()).isEqualTo(UPDATED_CPF);
         assertThat(testDocente.getGerero()).isEqualTo(UPDATED_GERERO);
-        assertThat(testDocente.getDataNascimento()).isEqualTo(UPDATED_DATA_NASCIMENTO);
+        assertThat(testDocente.getNascimento()).isEqualTo(UPDATED_NASCIMENTO);
     }
 
     @Test

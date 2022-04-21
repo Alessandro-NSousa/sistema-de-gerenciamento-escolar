@@ -35,7 +35,7 @@
 
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.matricula" for="field_matricula">Matricula</label>
-          <input type="number" class="form-control" name="matricula" id="field_matricula" data-cy="matricula" formControlName="matricula" />
+          <input type="text" class="form-control" name="matricula" id="field_matricula" data-cy="matricula" formControlName="matricula" />
           <div *ngIf="editForm.get('matricula')!.invalid && (editForm.get('matricula')!.dirty || editForm.get('matricula')!.touched)">
             <small
               class="form-text text-danger"
@@ -43,13 +43,6 @@
               jhiTranslate="entity.validation.required"
             >
               This field is required.
-            </small>
-            <small
-              class="form-text text-danger"
-              [hidden]="!editForm.get('matricula')?.errors?.number"
-              jhiTranslate="entity.validation.number"
-            >
-              This field should be a number.
             </small>
           </div>
         </div>
@@ -70,6 +63,23 @@
             <option [ngValue]="null">{{ 'sistemaEscolarApp.Sexo.null' | translate }}</option>
             <option *ngFor="let sexo of sexoValues" [value]="sexo">{{ 'sistemaEscolarApp.Sexo.' + sexo | translate }}</option>
           </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.discente.nascimento" for="field_nascimento">Nascimento</label>
+          <div class="input-group">
+            <input
+              id="field_nascimento"
+              data-cy="nascimento"
+              type="text"
+              class="form-control"
+              name="nascimento"
+              ngbDatepicker
+              #nascimentoDp="ngbDatepicker"
+              formControlName="nascimento"
+            />
+            <button type="button" class="btn btn-secondary" (click)="nascimentoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
         </div>
 
         <div class="row mb-3">

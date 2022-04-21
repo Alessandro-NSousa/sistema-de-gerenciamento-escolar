@@ -23,7 +23,7 @@
             <column name="gerero" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="data_nascimento" type="date">
+            <column name="nascimento" type="date">
                 <constraints nullable="true" />
             </column>
             <column name="endereco_id" type="bigint">
@@ -53,7 +53,7 @@
             <column name="nome" type="string"/>
             <column name="cpf" type="string"/>
             <column name="gerero" type="string"/>
-            <column name="data_nascimento" type="date"/>
+            <column name="nascimento" type="date"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

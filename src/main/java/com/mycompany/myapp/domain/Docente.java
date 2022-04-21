@@ -36,8 +36,8 @@ public class Docente implements Serializable {
     @Column(name = "gerero")
     private Sexo gerero;
 
-    @Column(name = "data_nascimento")
-    private LocalDate dataNascimento;
+    @Column(name = "nascimento")
+    private LocalDate nascimento;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -97,17 +97,17 @@ public class Docente implements Serializable {
         this.gerero = gerero;
     }
 
-    public LocalDate getDataNascimento() {
-        return this.dataNascimento;
+    public LocalDate getNascimento() {
+        return this.nascimento;
     }
 
-    public Docente dataNascimento(LocalDate dataNascimento) {
-        this.setDataNascimento(dataNascimento);
+    public Docente nascimento(LocalDate nascimento) {
+        this.setNascimento(nascimento);
         return this;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
     }
 
     public Endereco getEndereco() {
@@ -150,7 +150,7 @@ public class Docente implements Serializable {
             ", nome='" + getNome() + "'" +
             ", cpf='" + getCpf() + "'" +
             ", gerero='" + getGerero() + "'" +
-            ", dataNascimento='" + getDataNascimento() + "'" +
+            ", nascimento='" + getNascimento() + "'" +
             "}";
     }
 }

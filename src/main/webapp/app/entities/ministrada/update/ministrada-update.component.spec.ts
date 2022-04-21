@@ -52,12 +52,12 @@ describe('Ministrada Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Disciplina query and add missing value', () => {
       const ministrada: IMinistrada = { id: 456 };
-      const disciplna: IDisciplina = { id: 91752 };
-      ministrada.disciplna = disciplna;
+      const disciplina: IDisciplina = { id: 91752 };
+      ministrada.disciplina = disciplina;
 
       const disciplinaCollection: IDisciplina[] = [{ id: 61604 }];
       jest.spyOn(disciplinaService, 'query').mockReturnValue(of(new HttpResponse({ body: disciplinaCollection })));
-      const additionalDisciplinas = [disciplna];
+      const additionalDisciplinas = [disciplina];
       const expectedCollection: IDisciplina[] = [...additionalDisciplinas, ...disciplinaCollection];
       jest.spyOn(disciplinaService, 'addDisciplinaToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -90,8 +90,8 @@ describe('Ministrada Management Update Component', () => {
 
     it('Should update editForm', () => {
       const ministrada: IMinistrada = { id: 456 };
-      const disciplna: IDisciplina = { id: 99414 };
-      ministrada.disciplna = disciplna;
+      const disciplina: IDisciplina = { id: 99414 };
+      ministrada.disciplina = disciplina;
       const docente: IDocente = { id: 66080 };
       ministrada.docente = docente;
 
@@ -99,7 +99,7 @@ describe('Ministrada Management Update Component', () => {
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(ministrada));
-      expect(comp.disciplinasSharedCollection).toContain(disciplna);
+      expect(comp.disciplinasSharedCollection).toContain(disciplina);
       expect(comp.docentesSharedCollection).toContain(docente);
     });
   });

@@ -29,7 +29,7 @@ describe('Docente Service', () => {
       nome: 'AAAAAAA',
       cpf: 'AAAAAAA',
       gerero: Sexo.F,
-      dataNascimento: currentDate,
+      nascimento: currentDate,
     };
   });
 
@@ -37,7 +37,7 @@ describe('Docente Service', () => {
     it('should find an element', () => {
       const returnedFromService = Object.assign(
         {
-          dataNascimento: currentDate.format(DATE_FORMAT),
+          nascimento: currentDate.format(DATE_FORMAT),
         },
         elemDefault
       );
@@ -53,14 +53,14 @@ describe('Docente Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 0,
-          dataNascimento: currentDate.format(DATE_FORMAT),
+          nascimento: currentDate.format(DATE_FORMAT),
         },
         elemDefault
       );
 
       const expected = Object.assign(
         {
-          dataNascimento: currentDate,
+          nascimento: currentDate,
         },
         returnedFromService
       );
@@ -79,14 +79,14 @@ describe('Docente Service', () => {
           nome: 'BBBBBB',
           cpf: 'BBBBBB',
           gerero: 'BBBBBB',
-          dataNascimento: currentDate.format(DATE_FORMAT),
+          nascimento: currentDate.format(DATE_FORMAT),
         },
         elemDefault
       );
 
       const expected = Object.assign(
         {
-          dataNascimento: currentDate,
+          nascimento: currentDate,
         },
         returnedFromService
       );
@@ -112,7 +112,7 @@ describe('Docente Service', () => {
 
       const expected = Object.assign(
         {
-          dataNascimento: currentDate,
+          nascimento: currentDate,
         },
         returnedFromService
       );
@@ -131,14 +131,14 @@ describe('Docente Service', () => {
           nome: 'BBBBBB',
           cpf: 'BBBBBB',
           gerero: 'BBBBBB',
-          dataNascimento: currentDate.format(DATE_FORMAT),
+          nascimento: currentDate.format(DATE_FORMAT),
         },
         elemDefault
       );
 
       const expected = Object.assign(
         {
-          dataNascimento: currentDate,
+          nascimento: currentDate,
         },
         returnedFromService
       );

@@ -26,7 +26,7 @@ export class MinistradaUpdateComponent implements OnInit {
     id: [],
     ano: [],
     ch: [],
-    disciplna: [],
+    disciplina: [],
     docente: [],
   });
 
@@ -92,13 +92,13 @@ export class MinistradaUpdateComponent implements OnInit {
       id: ministrada.id,
       ano: ministrada.ano,
       ch: ministrada.ch,
-      disciplna: ministrada.disciplna,
+      disciplina: ministrada.disciplina,
       docente: ministrada.docente,
     });
 
     this.disciplinasSharedCollection = this.disciplinaService.addDisciplinaToCollectionIfMissing(
       this.disciplinasSharedCollection,
-      ministrada.disciplna
+      ministrada.disciplina
     );
     this.docentesSharedCollection = this.docenteService.addDocenteToCollectionIfMissing(this.docentesSharedCollection, ministrada.docente);
   }
@@ -109,7 +109,7 @@ export class MinistradaUpdateComponent implements OnInit {
       .pipe(map((res: HttpResponse<IDisciplina[]>) => res.body ?? []))
       .pipe(
         map((disciplinas: IDisciplina[]) =>
-          this.disciplinaService.addDisciplinaToCollectionIfMissing(disciplinas, this.editForm.get('disciplna')!.value)
+          this.disciplinaService.addDisciplinaToCollectionIfMissing(disciplinas, this.editForm.get('disciplina')!.value)
         )
       )
       .subscribe((disciplinas: IDisciplina[]) => (this.disciplinasSharedCollection = disciplinas));
@@ -129,7 +129,7 @@ export class MinistradaUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       ano: this.editForm.get(['ano'])!.value,
       ch: this.editForm.get(['ch'])!.value,
-      disciplna: this.editForm.get(['disciplna'])!.value,
+      disciplina: this.editForm.get(['disciplina'])!.value,
       docente: this.editForm.get(['docente'])!.value,
     };
   }

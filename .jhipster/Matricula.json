@@ -35,7 +35,7 @@
       "otherEntityField": "nome",
       "otherEntityName": "disciplina",
       "otherEntityRelationshipName": "matricula",
-      "relationshipName": "disciplna",
+      "relationshipName": "disciplina",
       "relationshipType": "many-to-one"
     }
   ],

@@ -27,16 +27,16 @@ public interface MatriculaRepository extends JpaRepository<Matricula, Long> {
     }
 
     @Query(
-        value = "select distinct matricula from Matricula matricula left join fetch matricula.discente left join fetch matricula.disciplna",
+        value = "select distinct matricula from Matricula matricula left join fetch matricula.discente left join fetch matricula.disciplina",
         countQuery = "select count(distinct matricula) from Matricula matricula"
     )
     Page<Matricula> findAllWithToOneRelationships(Pageable pageable);
 
-    @Query("select distinct matricula from Matricula matricula left join fetch matricula.discente left join fetch matricula.disciplna")
+    @Query("select distinct matricula from Matricula matricula left join fetch matricula.discente left join fetch matricula.disciplina")
     List<Matricula> findAllWithToOneRelationships();
 
     @Query(
-        "select matricula from Matricula matricula left join fetch matricula.discente left join fetch matricula.disciplna where matricula.id =:id"
+        "select matricula from Matricula matricula left join fetch matricula.discente left join fetch matricula.disciplina where matricula.id =:id"
     )
     Optional<Matricula> findOneWithToOneRelationships(@Param("id") Long id);
 }

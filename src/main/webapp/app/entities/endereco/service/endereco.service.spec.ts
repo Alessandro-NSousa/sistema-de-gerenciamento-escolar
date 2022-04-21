@@ -21,13 +21,13 @@ describe('Endereco Service', () => {
 
     elemDefault = {
       id: 0,
-      cep: 0,
+      cep: 'AAAAAAA',
       logradouro: 'AAAAAAA',
       complemento: 'AAAAAAA',
       numero: 0,
       cidade: 'AAAAAAA',
       uf: 'AAAAAAA',
-      bairro: 0,
+      bairro: 'AAAAAAA',
     };
   });
 
@@ -63,13 +63,13 @@ describe('Endereco Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          cep: 1,
+          cep: 'BBBBBB',
           logradouro: 'BBBBBB',
           complemento: 'BBBBBB',
           numero: 1,
           cidade: 'BBBBBB',
           uf: 'BBBBBB',
-          bairro: 1,
+          bairro: 'BBBBBB',
         },
         elemDefault
       );
@@ -108,13 +108,13 @@ describe('Endereco Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          cep: 1,
+          cep: 'BBBBBB',
           logradouro: 'BBBBBB',
           complemento: 'BBBBBB',
           numero: 1,
           cidade: 'BBBBBB',
           uf: 'BBBBBB',
-          bairro: 1,
+          bairro: 'BBBBBB',
         },
         elemDefault
       );

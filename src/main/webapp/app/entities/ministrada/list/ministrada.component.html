@@ -35,7 +35,7 @@
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.ministrada.ano">Ano</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.ministrada.ch">Ch</span></th>
-          <th scope="col"><span jhiTranslate="sistemaEscolarApp.ministrada.disciplna">Disciplna</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.ministrada.disciplina">Disciplina</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.ministrada.docente">Docente</span></th>
           <th scope="col"></th>
         </tr>
@@ -48,8 +48,8 @@
           <td>{{ ministrada.ano | formatMediumDate }}</td>
           <td>{{ ministrada.ch }}</td>
           <td>
-            <div *ngIf="ministrada.disciplna">
-              <a [routerLink]="['/disciplina', ministrada.disciplna?.id, 'view']">{{ ministrada.disciplna?.nome }}</a>
+            <div *ngIf="ministrada.disciplina">
+              <a [routerLink]="['/disciplina', ministrada.disciplina?.id, 'view']">{{ ministrada.disciplina?.nome }}</a>
             </div>
           </td>
           <td>
