@@ -27,16 +27,16 @@ public interface MinistradaRepository extends JpaRepository<Ministrada, Long> {
     }
 
     @Query(
-        value = "select distinct ministrada from Ministrada ministrada left join fetch ministrada.disciplna left join fetch ministrada.docente",
+        value = "select distinct ministrada from Ministrada ministrada left join fetch ministrada.disciplina left join fetch ministrada.docente",
         countQuery = "select count(distinct ministrada) from Ministrada ministrada"
     )
     Page<Ministrada> findAllWithToOneRelationships(Pageable pageable);
 
-    @Query("select distinct ministrada from Ministrada ministrada left join fetch ministrada.disciplna left join fetch ministrada.docente")
+    @Query("select distinct ministrada from Ministrada ministrada left join fetch ministrada.disciplina left join fetch ministrada.docente")
     List<Ministrada> findAllWithToOneRelationships();
 
     @Query(
-        "select ministrada from Ministrada ministrada left join fetch ministrada.disciplna left join fetch ministrada.docente where ministrada.id =:id"
+        "select ministrada from Ministrada ministrada left join fetch ministrada.disciplina left join fetch ministrada.docente where ministrada.id =:id"
     )
     Optional<Ministrada> findOneWithToOneRelationships(@Param("id") Long id);
 }

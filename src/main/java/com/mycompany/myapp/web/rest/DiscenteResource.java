@@ -140,6 +140,9 @@ public class DiscenteResource {
                 if (discente.getGenero() != null) {
                     existingDiscente.setGenero(discente.getGenero());
                 }
+                if (discente.getNascimento() != null) {
+                    existingDiscente.setNascimento(discente.getNascimento());
+                }
 
                 return existingDiscente;
             })

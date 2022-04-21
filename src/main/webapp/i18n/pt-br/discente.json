@@ -23,6 +23,7 @@
       "matricula": "Matricula",
       "curso": "Curso",
       "genero": "Genero",
+      "nascimento": "Nascimento",
       "endereco": "Endereco"
     }
   }

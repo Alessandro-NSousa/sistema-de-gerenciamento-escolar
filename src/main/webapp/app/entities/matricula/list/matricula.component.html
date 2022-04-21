@@ -37,7 +37,7 @@
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.matricula.notaFinal">Nota Final</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.matricula.nFaltas">N Faltas</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.matricula.discente">Discente</span></th>
-          <th scope="col"><span jhiTranslate="sistemaEscolarApp.matricula.disciplna">Disciplna</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.matricula.disciplina">Disciplina</span></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -55,8 +55,8 @@
             </div>
           </td>
           <td>
-            <div *ngIf="matricula.disciplna">
-              <a [routerLink]="['/disciplina', matricula.disciplna?.id, 'view']">{{ matricula.disciplna?.nome }}</a>
+            <div *ngIf="matricula.disciplina">
+              <a [routerLink]="['/disciplina', matricula.disciplina?.id, 'view']">{{ matricula.disciplina?.nome }}</a>
             </div>
           </td>
           <td class="text-end">

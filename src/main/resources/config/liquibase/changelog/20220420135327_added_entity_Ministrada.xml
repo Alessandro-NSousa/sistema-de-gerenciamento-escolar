@@ -20,7 +20,7 @@
             <column name="ch" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="disciplna_id" type="bigint">
+            <column name="disciplina_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="docente_id" type="bigint">

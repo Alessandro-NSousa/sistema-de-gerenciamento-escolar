@@ -22,7 +22,7 @@ public class Endereco implements Serializable {
     private Long id;
 
     @Column(name = "cep")
-    private Integer cep;
+    private String cep;
 
     @Column(name = "logradouro")
     private String logradouro;
@@ -40,7 +40,7 @@ public class Endereco implements Serializable {
     private String uf;
 
     @Column(name = "bairro")
-    private Integer bairro;
+    private String bairro;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -57,16 +57,16 @@ public class Endereco implements Serializable {
         this.id = id;
     }
 
-    public Integer getCep() {
+    public String getCep() {
         return this.cep;
     }
 
-    public Endereco cep(Integer cep) {
+    public Endereco cep(String cep) {
         this.setCep(cep);
         return this;
     }
 
-    public void setCep(Integer cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
@@ -135,16 +135,16 @@ public class Endereco implements Serializable {
         this.uf = uf;
     }
 
-    public Integer getBairro() {
+    public String getBairro() {
         return this.bairro;
     }
 
-    public Endereco bairro(Integer bairro) {
+    public Endereco bairro(String bairro) {
         this.setBairro(bairro);
         return this;
     }
 
-    public void setBairro(Integer bairro) {
+    public void setBairro(String bairro) {
         this.bairro = bairro;
     }
 
@@ -172,13 +172,13 @@ public class Endereco implements Serializable {
     public String toString() {
         return "Endereco{" +
             "id=" + getId() +
-            ", cep=" + getCep() +
+            ", cep='" + getCep() + "'" +
             ", logradouro='" + getLogradouro() + "'" +
             ", complemento='" + getComplemento() + "'" +
             ", numero=" + getNumero() +
             ", cidade='" + getCidade() + "'" +
             ", uf='" + getUf() + "'" +
-            ", bairro=" + getBairro() +
+            ", bairro='" + getBairro() + "'" +
             "}";
     }
 }

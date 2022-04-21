@@ -36,7 +36,7 @@
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.docente.nome">Nome</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.docente.cpf">Cpf</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.docente.gerero">Gerero</span></th>
-          <th scope="col"><span jhiTranslate="sistemaEscolarApp.docente.dataNascimento">Data Nascimento</span></th>
+          <th scope="col"><span jhiTranslate="sistemaEscolarApp.docente.nascimento">Nascimento</span></th>
           <th scope="col"><span jhiTranslate="sistemaEscolarApp.docente.endereco">Endereco</span></th>
           <th scope="col"></th>
         </tr>
@@ -49,7 +49,7 @@
           <td>{{ docente.nome }}</td>
           <td>{{ docente.cpf }}</td>
           <td jhiTranslate="{{ 'sistemaEscolarApp.Sexo.' + docente.gerero }}">{{ docente.gerero }}</td>
-          <td>{{ docente.dataNascimento | formatMediumDate }}</td>
+          <td>{{ docente.nascimento | formatMediumDate }}</td>
           <td>
             <div *ngIf="docente.endereco">
               <a [routerLink]="['/endereco', docente.endereco?.id, 'view']">{{ docente.endereco?.logradouro }}</a>

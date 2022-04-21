@@ -6,7 +6,7 @@ export interface IMinistrada {
   id?: number;
   ano?: dayjs.Dayjs | null;
   ch?: number | null;
-  disciplna?: IDisciplina | null;
+  disciplina?: IDisciplina | null;
   docente?: IDocente | null;
 }
 
@@ -15,7 +15,7 @@ export class Ministrada implements IMinistrada {
     public id?: number,
     public ano?: dayjs.Dayjs | null,
     public ch?: number | null,
-    public disciplna?: IDisciplina | null,
+    public disciplina?: IDisciplina | null,
     public docente?: IDocente | null
   ) {}
 }

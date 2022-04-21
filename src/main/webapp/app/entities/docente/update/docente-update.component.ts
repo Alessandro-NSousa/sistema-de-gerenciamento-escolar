@@ -26,7 +26,7 @@ export class DocenteUpdateComponent implements OnInit {
     nome: [null, [Validators.required]],
     cpf: [null, [Validators.required]],
     gerero: [],
-    dataNascimento: [],
+    nascimento: [],
     endereco: [],
   });
 
@@ -88,7 +88,7 @@ export class DocenteUpdateComponent implements OnInit {
       nome: docente.nome,
       cpf: docente.cpf,
       gerero: docente.gerero,
-      dataNascimento: docente.dataNascimento,
+      nascimento: docente.nascimento,
       endereco: docente.endereco,
     });
 
@@ -114,7 +114,7 @@ export class DocenteUpdateComponent implements OnInit {
       nome: this.editForm.get(['nome'])!.value,
       cpf: this.editForm.get(['cpf'])!.value,
       gerero: this.editForm.get(['gerero'])!.value,
-      dataNascimento: this.editForm.get(['dataNascimento'])!.value,
+      nascimento: this.editForm.get(['nascimento'])!.value,
       endereco: this.editForm.get(['endereco'])!.value,
     };
   }

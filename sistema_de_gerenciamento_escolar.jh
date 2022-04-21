@@ -2,9 +2,10 @@
 entity Discente {
 	nome String required
     cpf String required
-    matricula Integer required
+    matricula String required
     curso String required
     genero Sexo
+    nascimento LocalDate
 }
 
 enum Sexo {
@@ -16,7 +17,7 @@ entity Docente {
 	nome String required
     cpf String required
     gerero Sexo
-    dataNascimento LocalDate
+    nascimento LocalDate
     
 }
 
@@ -39,13 +40,13 @@ entity Ministrada {
 }
 
 entity Endereco {
-	cep Integer
+	cep String
     logradouro String
     complemento String
     numero Integer
     cidade String
     uf String
-    bairro Integer
+    bairro String
 }
 
 entity Telefone {
@@ -60,8 +61,8 @@ relationship OneToOne {
 
 relationship ManyToOne {
     Matricula{discente(nome)} to Discente
-    Matricula{disciplna(nome)} to Disciplina
-    Ministrada{disciplna(nome)} to Disciplina
+    Matricula{disciplina(nome)} to Disciplina
+    Ministrada{disciplina(nome)} to Disciplina
     Ministrada{docente(nome)} to Docente
     Telefone{discente(nome)} to Discente
     Telefone{docente(nome)} to Docente

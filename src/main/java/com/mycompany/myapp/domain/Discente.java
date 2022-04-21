@@ -2,6 +2,7 @@ package com.mycompany.myapp.domain;
 
 import com.mycompany.myapp.domain.enumeration.Sexo;
 import java.io.Serializable;
+import java.time.LocalDate;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
@@ -33,7 +34,7 @@ public class Discente implements Serializable {
 
     @NotNull
     @Column(name = "matricula", nullable = false)
-    private Integer matricula;
+    private String matricula;
 
     @NotNull
     @Column(name = "curso", nullable = false)
@@ -42,6 +43,9 @@ public class Discente implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "genero")
     private Sexo genero;
+
+    @Column(name = "nascimento")
+    private LocalDate nascimento;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -88,16 +92,16 @@ public class Discente implements Serializable {
         this.cpf = cpf;
     }
 
-    public Integer getMatricula() {
+    public String getMatricula() {
         return this.matricula;
     }
 
-    public Discente matricula(Integer matricula) {
+    public Discente matricula(String matricula) {
         this.setMatricula(matricula);
         return this;
     }
 
-    public void setMatricula(Integer matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
@@ -125,6 +129,19 @@ public class Discente implements Serializable {
 
     public void setGenero(Sexo genero) {
         this.genero = genero;
+    }
+
+    public LocalDate getNascimento() {
+        return this.nascimento;
+    }
+
+    public Discente nascimento(LocalDate nascimento) {
+        this.setNascimento(nascimento);
+        return this;
+    }
+
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
     }
 
     public Endereco getEndereco() {
@@ -166,9 +183,10 @@ public class Discente implements Serializable {
             "id=" + getId() +
             ", nome='" + getNome() + "'" +
             ", cpf='" + getCpf() + "'" +
-            ", matricula=" + getMatricula() +
+            ", matricula='" + getMatricula() + "'" +
             ", curso='" + getCurso() + "'" +
             ", genero='" + getGenero() + "'" +
+            ", nascimento='" + getNascimento() + "'" +
             "}";
     }
 }

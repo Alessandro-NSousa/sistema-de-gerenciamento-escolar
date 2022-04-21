@@ -29,8 +29,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class EnderecoResourceIT {
 
-    private static final Integer DEFAULT_CEP = 1;
-    private static final Integer UPDATED_CEP = 2;
+    private static final String DEFAULT_CEP = "AAAAAAAAAA";
+    private static final String UPDATED_CEP = "BBBBBBBBBB";
 
     private static final String DEFAULT_LOGRADOURO = "AAAAAAAAAA";
     private static final String UPDATED_LOGRADOURO = "BBBBBBBBBB";
@@ -47,8 +47,8 @@ class EnderecoResourceIT {
     private static final String DEFAULT_UF = "AAAAAAAAAA";
     private static final String UPDATED_UF = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_BAIRRO = 1;
-    private static final Integer UPDATED_BAIRRO = 2;
+    private static final String DEFAULT_BAIRRO = "AAAAAAAAAA";
+    private static final String UPDATED_BAIRRO = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/enderecos";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";

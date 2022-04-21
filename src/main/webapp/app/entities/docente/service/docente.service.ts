@@ -76,13 +76,13 @@ export class DocenteService {
 
   protected convertDateFromClient(docente: IDocente): IDocente {
     return Object.assign({}, docente, {
-      dataNascimento: docente.dataNascimento?.isValid() ? docente.dataNascimento.format(DATE_FORMAT) : undefined,
+      nascimento: docente.nascimento?.isValid() ? docente.nascimento.format(DATE_FORMAT) : undefined,
     });
   }
 
   protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
     if (res.body) {
-      res.body.dataNascimento = res.body.dataNascimento ? dayjs(res.body.dataNascimento) : undefined;
+      res.body.nascimento = res.body.nascimento ? dayjs(res.body.nascimento) : undefined;
     }
     return res;
   }
@@ -90,7 +90,7 @@ export class DocenteService {
   protected convertDateArrayFromServer(res: EntityArrayResponseType): EntityArrayResponseType {
     if (res.body) {
       res.body.forEach((docente: IDocente) => {
-        docente.dataNascimento = docente.dataNascimento ? dayjs(docente.dataNascimento) : undefined;
+        docente.nascimento = docente.nascimento ? dayjs(docente.nascimento) : undefined;
       });
     }
     return res;

@@ -37,7 +37,7 @@ public class Matricula implements Serializable {
     private Discente discente;
 
     @ManyToOne
-    private Disciplina disciplna;
+    private Disciplina disciplina;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -106,16 +106,16 @@ public class Matricula implements Serializable {
         return this;
     }
 
-    public Disciplina getDisciplna() {
-        return this.disciplna;
+    public Disciplina getDisciplina() {
+        return this.disciplina;
     }
 
-    public void setDisciplna(Disciplina disciplina) {
-        this.disciplna = disciplina;
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
-    public Matricula disciplna(Disciplina disciplina) {
-        this.setDisciplna(disciplina);
+    public Matricula disciplina(Disciplina disciplina) {
+        this.setDisciplina(disciplina);
         return this;
     }
 

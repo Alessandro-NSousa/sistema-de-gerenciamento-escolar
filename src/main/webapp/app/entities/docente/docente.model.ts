@@ -7,7 +7,7 @@ export interface IDocente {
   nome?: string;
   cpf?: string;
   gerero?: Sexo | null;
-  dataNascimento?: dayjs.Dayjs | null;
+  nascimento?: dayjs.Dayjs | null;
   endereco?: IEndereco | null;
 }
 
@@ -17,7 +17,7 @@ export class Docente implements IDocente {
     public nome?: string,
     public cpf?: string,
     public gerero?: Sexo | null,
-    public dataNascimento?: dayjs.Dayjs | null,
+    public nascimento?: dayjs.Dayjs | null,
     public endereco?: IEndereco | null
   ) {}
 }

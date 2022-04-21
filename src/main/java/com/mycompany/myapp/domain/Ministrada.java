@@ -30,7 +30,7 @@ public class Ministrada implements Serializable {
     private Integer ch;
 
     @ManyToOne
-    private Disciplina disciplna;
+    private Disciplina disciplina;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "endereco" }, allowSetters = true)
@@ -77,16 +77,16 @@ public class Ministrada implements Serializable {
         this.ch = ch;
     }
 
-    public Disciplina getDisciplna() {
-        return this.disciplna;
+    public Disciplina getDisciplina() {
+        return this.disciplina;
     }
 
-    public void setDisciplna(Disciplina disciplina) {
-        this.disciplna = disciplina;
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
-    public Ministrada disciplna(Disciplina disciplina) {
-        this.setDisciplna(disciplina);
+    public Ministrada disciplina(Disciplina disciplina) {
+        this.setDisciplina(disciplina);
         return this;
     }
 

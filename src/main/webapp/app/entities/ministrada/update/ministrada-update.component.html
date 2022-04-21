@@ -40,11 +40,13 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="sistemaEscolarApp.ministrada.disciplna" for="field_disciplna">Disciplna</label>
-          <select class="form-control" id="field_disciplna" data-cy="disciplna" name="disciplna" formControlName="disciplna">
+          <label class="form-label" jhiTranslate="sistemaEscolarApp.ministrada.disciplina" for="field_disciplina">Disciplina</label>
+          <select class="form-control" id="field_disciplina" data-cy="disciplina" name="disciplina" formControlName="disciplina">
             <option [ngValue]="null"></option>
             <option
-              [ngValue]="disciplinaOption.id === editForm.get('disciplna')!.value?.id ? editForm.get('disciplna')!.value : disciplinaOption"
+              [ngValue]="
+                disciplinaOption.id === editForm.get('disciplina')!.value?.id ? editForm.get('disciplina')!.value : disciplinaOption
+              "
               *ngFor="let disciplinaOption of disciplinasSharedCollection; trackBy: trackDisciplinaById"
             >
               {{ disciplinaOption.nome }}

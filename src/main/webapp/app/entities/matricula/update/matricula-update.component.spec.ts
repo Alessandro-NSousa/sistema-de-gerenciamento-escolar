@@ -71,12 +71,12 @@ describe('Matricula Management Update Component', () => {
 
     it('Should call Disciplina query and add missing value', () => {
       const matricula: IMatricula = { id: 456 };
-      const disciplna: IDisciplina = { id: 43567 };
-      matricula.disciplna = disciplna;
+      const disciplina: IDisciplina = { id: 43567 };
+      matricula.disciplina = disciplina;
 
       const disciplinaCollection: IDisciplina[] = [{ id: 86727 }];
       jest.spyOn(disciplinaService, 'query').mockReturnValue(of(new HttpResponse({ body: disciplinaCollection })));
-      const additionalDisciplinas = [disciplna];
+      const additionalDisciplinas = [disciplina];
       const expectedCollection: IDisciplina[] = [...additionalDisciplinas, ...disciplinaCollection];
       jest.spyOn(disciplinaService, 'addDisciplinaToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -92,15 +92,15 @@ describe('Matricula Management Update Component', () => {
       const matricula: IMatricula = { id: 456 };
       const discente: IDiscente = { id: 89191 };
       matricula.discente = discente;
-      const disciplna: IDisciplina = { id: 46024 };
-      matricula.disciplna = disciplna;
+      const disciplina: IDisciplina = { id: 46024 };
+      matricula.disciplina = disciplina;
 
       activatedRoute.data = of({ matricula });
       comp.ngOnInit();
 
       expect(comp.editForm.value).toEqual(expect.objectContaining(matricula));
       expect(comp.discentesSharedCollection).toContain(discente);
-      expect(comp.disciplinasSharedCollection).toContain(disciplna);
+      expect(comp.disciplinasSharedCollection).toContain(disciplina);
     });
   });
 

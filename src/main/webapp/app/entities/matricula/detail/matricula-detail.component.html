@@ -32,10 +32,10 @@
             <a [routerLink]="['/discente', matricula.discente?.id, 'view']">{{ matricula.discente?.nome }}</a>
           </div>
         </dd>
-        <dt><span jhiTranslate="sistemaEscolarApp.matricula.disciplna">Disciplna</span></dt>
+        <dt><span jhiTranslate="sistemaEscolarApp.matricula.disciplina">Disciplina</span></dt>
         <dd>
-          <div *ngIf="matricula.disciplna">
-            <a [routerLink]="['/disciplina', matricula.disciplna?.id, 'view']">{{ matricula.disciplna?.nome }}</a>
+          <div *ngIf="matricula.disciplina">
+            <a [routerLink]="['/disciplina', matricula.disciplina?.id, 'view']">{{ matricula.disciplina?.nome }}</a>
           </div>
         </dd>
       </dl>

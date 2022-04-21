@@ -17,7 +17,7 @@
     },
     {
       "fieldName": "matricula",
-      "fieldType": "Integer",
+      "fieldType": "String",
       "fieldValidateRules": ["required"]
     },
     {
@@ -29,6 +29,10 @@
       "fieldName": "genero",
       "fieldType": "Sexo",
       "fieldValues": "F,M"
+    },
+    {
+      "fieldName": "nascimento",
+      "fieldType": "LocalDate"
     }
   ],
   "fluentMethods": true,
